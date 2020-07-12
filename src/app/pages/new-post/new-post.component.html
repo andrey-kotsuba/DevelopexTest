@@ -1,0 +1,14 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div>
+    <a
+      [routerLink]="['../posts']"
+      mat-raised-button
+      color="primary">
+      Go to posts
+    </a>
+  </div>
+
+  <app-post-form
+    (savePost)="savePost($event)">
+  </app-post-form>
+</div>

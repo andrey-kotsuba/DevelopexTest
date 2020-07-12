@@ -1,0 +1,7 @@
+<div class="loader-container">
+  <mat-progress-bar
+    *ngIf="service.loaderIsVisible$ | async"
+    mode="indeterminate"
+    color="accent">
+  </mat-progress-bar>
+</div>

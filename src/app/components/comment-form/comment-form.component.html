@@ -1,0 +1,43 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <h2>Comments</h2>
+  <div fxLayout="column" fxLayoutGap="15px">
+    <div *ngFor="let comment of comments" fxLayout="column" fxLayoutGap="15px" class="comment">
+      <div>User: {{comment.email}}</div>
+      <div>{{comment.body}}</div>
+      <div fxLayout="row" fxLayoutGap="5px" class="actions">
+        <span
+          (click)="deleteComment.emit(comment.id)">
+          delete
+        </span>
+
+        <span (click)="editComment.emit(comment)">
+          edit
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <form [formGroup]="form" fxLayout="column">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput>
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Comment</mat-label>
+        <textarea formControlName="body" matInput></textarea>
+      </mat-form-field>
+
+      <div>
+        <button
+          (click)="addNewComment()"
+          [disabled]="form.invalid"
+          mat-raised-button
+          color="primary">
+          Add comment
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutGap="15px">
+    <a
+      [routerLink]="['../../posts']"
+      mat-raised-button
+      color="primary">
+      Go to posts
+    </a>
+
+    <button
+      (click)="deletePost()"
+      mat-raised-button
+      color="warn">
+      Delete post
+    </button>
+  </div>
+
+  <app-post-form
+    (savePost)="updatePost($event)"
+    [post]="post">
+  </app-post-form>
+
+  <app-comment-form
+    [comments]="comments"
+    (addComment)="addComment($event)"
+    (editComment)="editComment($event)"
+    (deleteComment)="deleteComment($event)">
+  </app-comment-form>
+</div>
